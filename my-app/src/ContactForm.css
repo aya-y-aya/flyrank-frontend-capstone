@@ -1,0 +1,82 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background-color: #f4f4f4; /* Optional: A light background for better contrast */
+}
+
+.contact-form-container {
+  max-width: 500px;
+  width: 100%; /* Ensure it takes full width within its max-width */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* Slightly more rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  background-color: #fff;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center; /* Vertically align label and input */
+}
+
+label {
+  flex: 0 0 100px; /* Give label a fixed width */
+  margin-right: 10px; /* Space between label and input */
+  margin-bottom: 0; /* Reset margin-bottom as it's not display: block anymore */
+  font-weight: bold;
+  color: #555;
+  text-align: right; /* Align label text to the right */
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  flex: 1; /* Allow input/textarea to take remaining space */
+  padding: 10px;
+  border: 1px solid #ddd; /* Lighter border */
+  border-radius: 4px;
+  font-size: 16px;
+  box-sizing: border-box; /* Include padding in width */
+  width: auto; /* Override previous 100% width */
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
+  border-color: #007bff; /* Highlight on focus */
+  outline: none;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.error {
+  color: #dc3545; /* Bootstrap-like danger color */
+  font-size: 0.875em;
+  margin-top: 5px;
+}
+
+button {
+  width: 100%; /* Make button full width */
+  background-color: #007bff; /* Primary blue color */
+  color: white;
+  padding: 12px 15px; /* Slightly more padding */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.2s ease-in-out; /* Smooth transition */
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
