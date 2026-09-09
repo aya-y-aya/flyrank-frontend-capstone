@@ -2,39 +2,53 @@
 
 import React from 'react';
 import { useBooking } from '@/context/BookingProvider';
+import Button from '@/components/ui/Button';
 
 export default function Step4_Checkout() {
   const { selectedService, availabilityId, policyAccepted } = useBooking();
 
   const canProceed = Boolean(selectedService && availabilityId && policyAccepted);
 
+  const handleConfirm = () => {
+    alert(`Booking confirmed for ${selectedService?.serviceName}!`);
+  };
+
   return (
-    <section aria-labelledby="step4-heading" className="space-y-3 sm:space-y-4 pt-2 border-t border-gray-100">
+    <section aria-labelledby="step4-heading" className="space-y-4 pt-4 border-t border-stone-200">
       <div>
-        <h2 id="step4-heading" className="text-lg sm:text-xl font-bold text-gray-900">
-          4. Checkout & Confirmation
+        <span className="small-label text-foreground/70 block mb-0.5">
+          Step 04
+        </span>
+        <h2 id="step4-heading" className="text-xl sm:text-2xl font-bold text-foreground leading-[1.2]">
+          Checkout & Confirmation
         </h2>
-        <p className="text-xs sm:text-sm text-gray-500 mt-0.5">
-          Confirm your selections and proceed to checkout.
+        <p className="text-sm sm:text-base text-foreground/80 mt-1 leading-[1.5]">
+          Confirm your selections and proceed to complete your booking.
         </p>
       </div>
 
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4 pt-2">
-        <div className="text-xs sm:text-sm text-gray-600">
+        <div className="text-sm sm:text-base text-foreground">
           {selectedService ? (
-            <span>Total: <strong className="text-sm sm:text-base text-gray-900">₱{selectedService.base_price}</strong></span>
+            <span>
+              Total: <strong className="text-base sm:text-lg text-foreground font-bold">₱{selectedService.base_price}</strong>
+            </span>
           ) : (
-            <span className="italic text-gray-400">Total calculated upon service selection</span>
+            <span className="italic text-foreground/60">Total calculated upon service selection</span>
           )}
         </div>
 
-        <button
+        {/* Primary Action (#BE185D): Deep Magenta applied to primary buttons (e.g. Confirm Booking) */}
+        <Button
           type="button"
           disabled={!canProceed}
-          className="w-full sm:w-auto min-h-12 px-6 py-2.5 bg-blue-600 text-white rounded-lg font-semibold text-sm sm:text-base transition-all disabled:opacity-50 disabled:cursor-not-allowed hover:bg-blue-700 active:scale-[0.99] flex items-center justify-center cursor-pointer shadow-xs"
+          onClick={handleConfirm}
+          variant="primary"
+          size="md"
+          className="w-full sm:w-auto"
         >
-          Proceed to Payment
-        </button>
+          Confirm Booking
+        </Button>
       </div>
     </section>
   );

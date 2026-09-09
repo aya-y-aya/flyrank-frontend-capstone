@@ -18,9 +18,10 @@
 
 .title {
   text-align: center;
-  color: #111827;
+  color: var(--foreground, #171717);
   font-size: clamp(1.25rem, 4vw, 1.75rem);
   font-weight: 700;
+  line-height: 1.2;
   margin-bottom: 1.5rem;
 }
 
@@ -63,9 +64,9 @@
 
 .input:focus,
 .textarea:focus {
-  border-color: #2563eb;
+  border-color: var(--primary, #BE185D);
   outline: none;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+  box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.2);
 }
 
 .error {
@@ -98,7 +99,7 @@
 .button {
   width: 100%;
   min-height: 48px;
-  background-color: #2563eb;
+  background-color: var(--primary, #BE185D);
   color: #ffffff;
   padding: 0.75rem 1.25rem;
   border: none;
@@ -114,9 +115,10 @@
 }
 
 .button:hover {
-  background-color: #1d4ed8;
+  background-color: var(--primary-hover, #9D174D);
 }
 
 .button:active {
+  background-color: var(--primary-active, #831843);
   transform: scale(0.99);
 }

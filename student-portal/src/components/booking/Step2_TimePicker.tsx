@@ -16,12 +16,15 @@ export default function Step2_TimePicker() {
   const { availabilityId, setAvailability } = useBooking();
 
   return (
-    <section aria-labelledby="step2-heading" className="space-y-3 sm:space-y-4">
+    <section aria-labelledby="step2-heading" className="space-y-4">
       <div>
-        <h2 id="step2-heading" className="text-lg sm:text-xl font-bold text-gray-900">
-          2. Pick a Time
+        <span className="small-label text-foreground/70 block mb-0.5">
+          Step 02
+        </span>
+        <h2 id="step2-heading" className="text-xl sm:text-2xl font-bold text-foreground leading-[1.2]">
+          Pick a Time
         </h2>
-        <p className="text-xs sm:text-sm text-gray-500 mt-0.5">
+        <p className="text-sm sm:text-base text-foreground/80 mt-1 leading-[1.5]">
           Select an available timeslot for your appointment.
         </p>
       </div>
@@ -34,25 +37,31 @@ export default function Step2_TimePicker() {
               key={slot.id}
               type="button"
               onClick={() => setAvailability(slot.id)}
-              className={`min-h-12 px-3 py-2.5 rounded-lg border text-center transition-all cursor-pointer flex flex-col items-center justify-center ${
+              className={`min-h-12 px-3 py-2.5 rounded-lg border text-center transition-all duration-150 cursor-pointer flex flex-col items-center justify-center ${
                 isSelected
-                  ? 'border-blue-600 bg-blue-50 text-blue-700 font-semibold ring-2 ring-blue-600/20'
-                  : 'border-gray-200 bg-white text-gray-800 hover:border-gray-300 hover:bg-gray-50'
+                  ? 'border-primary bg-primary-light text-primary font-bold ring-2 ring-primary/20 shadow-xs'
+                  : 'border-stone-200 bg-white text-foreground hover:border-stone-300 hover:bg-stone-50'
               }`}
             >
-              <span className="text-sm font-medium">{slot.time}</span>
-              <span className="text-[11px] text-gray-500">{slot.label}</span>
+              <span className="text-sm sm:text-base font-semibold">{slot.time}</span>
+              <span
+                className={`small-label mt-0.5 ${
+                  isSelected ? 'text-primary' : 'text-foreground/60'
+                }`}
+              >
+                {slot.label}
+              </span>
             </button>
           );
         })}
       </div>
 
       {availabilityId ? (
-        <p className="text-xs text-green-700 font-medium">
+        <p className="text-sm text-primary font-semibold">
           ✓ Selected slot ID: {availabilityId}
         </p>
       ) : (
-        <p className="text-xs text-gray-400 italic">Please choose a slot above.</p>
+        <p className="text-xs text-foreground/60 italic">Please choose a slot above.</p>
       )}
     </section>
   );

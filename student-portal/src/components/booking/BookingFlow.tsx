@@ -10,7 +10,7 @@ import Step4_Checkout from './Step4_Checkout';
 export default function BookingFlow() {
   return (
     <BookingProvider>
-      <div className="w-full max-w-xl md:max-w-2xl xl:max-w-3xl mx-auto space-y-6 sm:space-y-8 bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-sm border border-gray-200 box-border">
+      <div className="w-full max-w-xl md:max-w-2xl xl:max-w-3xl mx-auto space-y-6 sm:space-y-8 bg-white p-4 sm:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-sm border border-stone-200 box-border">
         <Step1_ServiceSelect />
         <Step2_TimePicker />
         <Step3_PolicyGate />
