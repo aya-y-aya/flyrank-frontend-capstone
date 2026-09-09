@@ -1,0 +1,19 @@
+{
+  "name": "flyrank-frontend-capstone",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "instructor-portal",
+    "student-portal"
+  ],
+  "scripts": {
+    "dev:instructor": "npm run dev --workspace=instructor-portal",
+    "dev:student": "npm run dev --workspace=student-portal",
+    "build": "npm run build:instructor && npm run build:student",
+    "build:instructor": "npm run build --workspace=instructor-portal",
+    "build:student": "npm run build --workspace=student-portal",
+    "lint": "npm run lint:instructor && npm run lint:student",
+    "lint:instructor": "npm run lint --workspace=instructor-portal",
+    "lint:student": "npm run lint --workspace=student-portal"
+  }
+}
