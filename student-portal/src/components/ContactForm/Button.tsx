@@ -1,15 +1,17 @@
 import React from 'react';
+import styles from './ContactForm.module.css';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   children: React.ReactNode;
 }
 
-const Button: React.FC<ButtonProps> = ({ children, ...props }) => {
+const Button: React.FC<ButtonProps> = ({ children, className, ...props }) => {
   return (
-    <button {...props}>
+    <button className={`${styles.button} ${className || ''}`} {...props}>
       {children}
     </button>
   );
 };
 
 export default Button;
+

@@ -1,8 +1,10 @@
+'use client';
+
 import React, { useState } from 'react';
-import Input from './components/ContactForm/Input';
-import TextArea from './components/ContactForm/TextArea';
-import Button from './components/ContactForm/Button';
-import './ContactForm.css';
+import Input from './Input';
+import TextArea from './TextArea';
+import Button from './Button';
+import styles from './ContactForm.module.css';
 
 const ContactForm: React.FC = () => {
   const [name, setName] = useState('');
@@ -29,15 +31,14 @@ const ContactForm: React.FC = () => {
       setErrors(newErrors);
     } else {
       setErrors({});
-      // Handle form submission
       console.log({ name, email, message });
       alert('Form submitted successfully!');
     }
   };
 
   return (
-    <div className="contact-form-container">
-      <h2>Contact Us</h2>
+    <div className={styles.container}>
+      <h2 className={styles.title}>Contact Us</h2>
       <form onSubmit={handleSubmit}>
         <Input
           id="name"
@@ -72,3 +73,4 @@ const ContactForm: React.FC = () => {
 };
 
 export default ContactForm;
+
