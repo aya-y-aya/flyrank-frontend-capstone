@@ -1,0 +1,10 @@
+{
+  "files.watcherExclude": {
+    "**/.git/**": true,
+    "**/.next/**": true,
+    "**/node_modules/**": true,
+    "**/dist/**": true
+  },
+  "git.autofetch": false
+}
+
