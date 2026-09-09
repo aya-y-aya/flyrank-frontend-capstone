@@ -21,5 +21,10 @@
     "oxlint": "^1.71.0",
     "typescript": "~6.0.2",
     "vite": "^8.1.1"
+  },
+  "optionalDependencies": {
+    "@oxlint/binding-linux-x64-gnu": "1.73.0",
+    "@rolldown/binding-linux-x64-gnu": "1.1.5",
+    "lightningcss-linux-x64-gnu": "1.32.0"
   }
 }
