@@ -4,25 +4,32 @@ This `GEMINI.md` file provides specific guidelines for the Gemini agent when wor
 
 ## Project Overview
 
-This is a frontend application likely built with React and Vite, as indicated by the file structure and previous diffs. It appears to include components for forms and general UI. The primary focus is on building a responsive and interactive user interface.
+This repository is organized as a multi-portal workspace containing two main applications:
+
+1. **`instructor-portal`**: An instructor-facing application built with React 19, Vite, TypeScript, and Oxlint.
+2. **`student-portal`**: A student-facing portal with booking and contact flows built with Next.js 16 (App Router), React 19, Tailwind CSS v4, TypeScript, and ESLint.
 
 ## Core Mandates & Conventions
 
-1.  **Prioritize Existing Patterns:** Always analyze and adhere to existing code patterns, architectural choices, and styling conventions found in the project. For example, if React functional components with hooks are used, continue that pattern.
-2.  **TypeScript First:** The project uses TypeScript. Ensure all new code and modifications are type-safe and leverage TypeScript's features to improve code quality. Avoid any use of `any` unless absolutely necessary and justified.
-3.  **Component-Based Architecture:** Follow a component-based architecture. Components should be small, reusable, and have clear responsibilities.
-4.  **Styling:** Observe the existing CSS structure and naming conventions. If new styles are needed, integrate them consistently with `App.css`, `ContactForm.css`, or create new, appropriately scoped CSS modules if a pattern for them emerges.
-5.  **Testing:** When implementing new features or fixing bugs, include appropriate tests (unit or integration) to ensure correctness and prevent regressions. Identify and use the project's chosen testing framework (e.g., Vitest, React Testing Library).
-6.  **Accessibility:** As detailed in `WORKFLOW.md`, prioritize accessibility. Ensure new UI elements are semantically correct, keyboard navigable, and have adequate color contrast.
-7.  **Dependencies:** Before introducing new libraries or frameworks, verify if a similar functionality can be achieved with existing project dependencies or vanilla JavaScript/TypeScript. If a new dependency is truly needed, ensure it's a widely accepted and maintained library.
-8.  **No Unnecessary Comments:** Add comments sparingly. Focus on explaining *why* complex logic is implemented, rather than *what* the code does (which should be self-evident).
-9.  **File Structure:** Maintain the existing file and folder structure. For example, new components related to `ContactForm` should ideally reside within `src/components/ContactForm`.
+1. **Framework Separation:**
+   - **`instructor-portal`**: Single-Page Application (SPA) using Vite. Entry point is `src/main.tsx` and `src/App.tsx`. Component styles use CSS files colocated with components.
+   - **`student-portal`**: Next.js App Router application. Routes, layouts, and server/client page components reside under `src/app/`. Do not introduce Vite-style `App.tsx` or `main.tsx` files here. Global styles are defined in `src/app/globals.css` with Tailwind CSS v4.
+2. **Prioritize Existing Patterns:** Always analyze and adhere to existing code patterns, architectural choices, and styling conventions in each portal.
+3. **TypeScript First:** Ensure all new code and modifications are type-safe and leverage TypeScript's features. Avoid any use of `any` unless absolutely necessary and justified.
+4. **Component-Based Architecture:** Follow a component-based architecture with small, reusable components:
+   - In `instructor-portal`, components reside under `src/components/`.
+   - In `student-portal`, feature-specific components reside under `src/components/booking/` and `src/components/ContactForm/`, and shared UI primitives reside under `src/components/ui/`.
+5. **Styling:**
+   - In `instructor-portal`, observe existing CSS structure colocated with components.
+   - In `student-portal`, use Tailwind CSS utility classes, design tokens in `globals.css`, or component-scoped CSS Modules (`*.module.css`).
+6. **Testing:** Include appropriate tests (unit or integration) to ensure correctness and prevent regressions.
+7. **Accessibility:** As detailed in `WORKFLOW.md`, prioritize accessibility. Ensure UI elements are semantically correct, keyboard navigable, and have adequate color contrast.
+8. **Dependencies:** Before introducing new libraries, verify if functionality can be achieved with existing dependencies or vanilla TypeScript.
+9. **No Unnecessary Comments:** Add comments sparingly, focusing on _why_ complex logic is implemented.
 
 ## Development Process
 
--   **Understand:** Before making changes, thoroughly understand the existing code related to the task.
--   **Plan:** Propose a concise plan for significant changes.
--   **Implement:** Apply changes following the conventions above.
--   **Verify:** Run existing tests and add new ones as needed. Ensure linting and type checks pass.
-
-This document serves as a living guide. If new conventions or architectural decisions are made, this file should be updated accordingly.
+- **Understand:** Before making changes, thoroughly understand the existing code related to the task.
+- **Plan:** Propose a concise plan for significant changes.
+- **Implement:** Apply changes following the conventions above.
+- **Verify:** Run existing tests and builds. Ensure linting and type checks pass across both portals.
